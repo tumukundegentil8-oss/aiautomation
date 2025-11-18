@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - AI Growth Agents</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        :root { --primary: #2563eb; --secondary: #f59e0b; --dark: #1e293b; --light: #f8fafc; }
+        
+        body { background: var(--light); color: var(--dark); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Navigation */
+        nav { background: white; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a.active { color: var(--primary); }
+        .btn { padding: 0.7rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
+        .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Header */
+        .page-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 150px 0 80px; text-align: center; }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* Services */
+        .services { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .service-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+        .service-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .service-price { font-size: 2rem; font-weight: 700; }
+        .service-content { padding: 2rem; }
+        .service-features { list-style: none; margin-bottom: 2rem; }
+        .service-features li { padding: 0.5rem 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
+        .service-features li:last-child { border-bottom: none; }
+        .service-features li i { color: var(--primary); }
+        .popular-badge { background: var(--secondary); color: var(--dark); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; position: absolute; top: 15px; right: 15px; }
+
+        /* Process */
+        .process { padding: 80px 0; background: var(--light); }
+        .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .process-step { background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .process-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+
+        /* CTA */
+        .cta { padding: 80px 0; background: var(--primary); color: white; text-align: center; }
+        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
+        .btn-secondary:hover { background: white; color: var(--primary); }
+
+        /* Footer */
+        footer { background: var(--dark); color: white; padding: 3rem 0 1.5rem; }
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-column h3 { margin-bottom: 1rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-links a { color: #cbd5e1; text-decoration: none; }
+        .footer-links a:hover { color: var(--secondary); }
+        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-links a { color: white; text-decoration: none; font-size: 1.2rem; }
+        .copyright { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); color: #94a3b8; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .page-header h1 { font-size: 2.2rem; }
+            .section-header h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo"><i class="fas fa-robot"></i> AI Growth Agents</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="ai-agents.html">AI Agents</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
+            </div>
+            <div class="mobile-menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our AI Services</h1>
+            <p>Transform your business with our AI automation solutions</p>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your AI Solution</h2>
+                <p>Professional packages for every business need</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Basic AI Agent -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-robot"></i></div>
+                        <h3>Basic AI Agent</h3>
+                        <div class="service-price">$97</div>
+                    </div>
+                    <div class="service-content">
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Basic Chatbot Setup</li>
+                            <li><i class="fas fa-check"></i> 10 Q&A Trained</li>
+                            <li><i class="fas fa-check"></i> Lead Capture</li>
+                            <li><i class="fas fa-check"></i> 48hr Delivery</li>
+                            <li><i class="fas fa-check"></i> 1 Week Support</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Appointment Setter -->
+                <div class="service-card" style="position: relative;">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
+                        <h3>Appointment Setter</h3>
+                        <div class="service-price">$197</div>
+                    </div>
+                    <div class="service-content">
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Everything in Basic +</li>
+                            <li><i class="fas fa-check"></i> Calendar Integration</li>
+                            <li><i class="fas fa-check"></i> 25 Q&A Trained</li>
+                            <li><i class="fas fa-check"></i> Booking System</li>
+                            <li><i class="fas fa-check"></i> 2 Weeks Support</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Business Assistant -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Business Assistant</h3>
+                        <div class="service-price">$297</div>
+                    </div>
+                    <div class="service-content">
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Multi-channel Setup</li>
+                            <li><i class="fas fa-check"></i> 50+ Q&A Trained</li>
+                            <li><i class="fas fa-check"></i> CRM Integration</li>
+                            <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                            <li><i class="fas fa-check"></i> 1 Month Support</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Simple 4-step process to get your AI agent running</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Consultation</h3>
+                    <p>15-minute discovery call</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Development</h3>
+                    <p>We build your AI agent</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Deployment</h3>
+                    <p>Test and launch</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Support</h3>
+                    <p>Ongoing optimization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Automate Your Business?</h2>
+            <p>Join 200+ businesses using our AI agents</p>
+            <a href="contact.html" class="btn btn-secondary">Start Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>AI Growth Agents</h3>
+                    <p>Transforming businesses with AI automation</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> contact@aigrowthagents.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tech City, USA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 AI Growth Agents. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Simple scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.service-card, .process-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
