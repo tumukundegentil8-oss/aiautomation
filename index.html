@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Growth Agents - Professional AI Automation</title>
+    <title>AI Growth Agents - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS Reset and Variables */
+        /* Reset and Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
             --secondary: #f59e0b;
             --dark: #1e293b;
             --light: #f8fafc;
-            --gray: #64748b;
-            --success: #10b981;
             --transition: all 0.3s ease;
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --radius: 8px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         html {
@@ -32,14 +29,13 @@
         }
 
         body {
-            background-color: var(--light);
+            background: var(--light);
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -49,12 +45,12 @@
         nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
+            box-shadow: var(--shadow);
             transition: var(--transition);
         }
 
@@ -110,19 +106,15 @@
             width: 100%;
         }
 
-        .nav-cta {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
+        .nav-cta .btn {
             padding: 0.7rem 1.5rem;
-            border-radius: var(--radius);
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             border: none;
-            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-primary {
@@ -136,65 +128,49 @@
             box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
         }
 
-        /* Page Sections */
-        .page {
-            display: none;
-            min-height: 100vh;
-            padding: 100px 0 50px;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Home Page */
-        #home {
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            display: flex;
-            align-items: center;
+            padding: 150px 0 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
         }
 
         .hero-content {
+            position: relative;
+            z-index: 1;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .hero-content h1 {
+        .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
             animation: slideUp 1s ease;
         }
 
-        .hero-content p {
+        .hero p {
             font-size: 1.3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             opacity: 0.9;
             animation: slideUp 1s ease 0.2s both;
         }
@@ -212,60 +188,62 @@
             font-size: 1.1rem;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
         }
 
-        /* Section Headers */
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             color: var(--dark);
         }
 
         .section-header p {
             font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 700px;
+            color: #64748b;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Services Page */
-        .services-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+        .feature-card {
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 2.5rem;
+            border-radius: 12px;
+            background: var(--light);
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
         }
 
-        .service-card:hover {
+        .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
-        .service-icon {
+        .feature-icon {
             width: 80px;
             height: 80px;
             background: var(--primary);
@@ -278,416 +256,37 @@
             font-size: 2rem;
         }
 
-        .service-card h3 {
+        .feature-card h3 {
             margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .service-card p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-        }
-
-        .service-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        /* AI Agents Page */
-        .agents-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .agent-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .agent-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .agent-image {
-            height: 200px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-        }
-
-        .agent-content {
-            padding: 1.5rem;
-        }
-
-        .agent-content h3 {
-            margin-bottom: 0.5rem;
             font-size: 1.4rem;
+            color: var(--dark);
         }
 
-        .agent-content p {
-            color: var(--gray);
-            margin-bottom: 1rem;
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
         }
 
-        .agent-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .agent-features li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .agent-features li i {
-            color: var(--success);
-        }
-
-        /* Portfolio Page */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .portfolio-item {
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            position: relative;
-            height: 250px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            font-size: 1.5rem;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .portfolio-item:hover {
-            transform: scale(1.05);
-        }
-
-        /* Pricing Page */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .pricing-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
             text-align: center;
-            transition: var(--transition);
-            position: relative;
         }
 
-        .pricing-card.popular {
-            border: 2px solid var(--secondary);
-            transform: scale(1.05);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--secondary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .pricing-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .pricing-price {
+        .cta h2 {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
             margin-bottom: 1.5rem;
         }
 
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .pricing-features li {
-            padding: 0.7rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .pricing-features li i {
-            color: var(--success);
-        }
-
-        /* About Page */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--gray);
-            font-weight: 500;
-        }
-
-        .about-image {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            height: 400px;
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        /* Contact Page */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .cta p {
             font-size: 1.2rem;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: var(--radius);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Support Page */
-        .support-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .faq-section {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .faq-item {
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .faq-question {
-            padding: 1rem 0;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-answer {
-            padding: 0 0 1rem;
-            color: var(--gray);
-            display: none;
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        .support-resources {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .resource-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .resource-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* Blog Page */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .blog-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .blog-image {
-            height: 200px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .blog-content {
-            padding: 1.5rem;
-        }
-
-        .blog-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .blog-content h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .blog-content p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Footer */
@@ -756,6 +355,7 @@
             border-radius: 50%;
             color: white;
             transition: var(--transition);
+            text-decoration: none;
         }
 
         .social-links a:hover {
@@ -771,26 +371,34 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-container,
-            .support-container {
-                grid-template-columns: 1fr;
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-
-            .pricing-card.popular {
-                transform: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.8rem;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links,
-            .nav-cta {
+            .nav-links {
                 display: none;
             }
 
@@ -798,20 +406,21 @@
                 display: block;
             }
 
-            .hero-content h1 {
-                font-size: 2.2rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .hero-content p {
+            .hero p {
                 font-size: 1.1rem;
             }
 
             .section-header h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
-            .about-stats {
-                grid-template-columns: 1fr;
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -826,19 +435,19 @@
             </div>
             
             <div class="nav-links">
-                <a href="#" onclick="showPage('home')">Home</a>
-                <a href="#" onclick="showPage('about')">About</a>
-                <a href="#" onclick="showPage('services')">Services</a>
-                <a href="#" onclick="showPage('agents')">AI Agents</a>
-                <a href="#" onclick="showPage('portfolio')">Portfolio</a>
-                <a href="#" onclick="showPage('pricing')">Pricing</a>
-                <a href="#" onclick="showPage('blog')">Blog</a>
-                <a href="#" onclick="showPage('contact')">Contact</a>
-                <a href="#" onclick="showPage('support')">Support</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="ai-agents.html">AI Agents</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+                <a href="support.html">Support</a>
             </div>
             
             <div class="nav-cta">
-                <button class="btn btn-primary" onclick="showPage('contact')">Get Started</button>
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
             </div>
             
             <div class="mobile-menu">
@@ -847,482 +456,62 @@
         </div>
     </nav>
 
-    <!-- Home Page -->
-    <section id="home" class="page active">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Transform Your Business With AI Automation</h1>
-                <p>We build custom AI agents that handle customer service, lead generation, and appointment booking 24/7, so you can focus on growing your business.</p>
+                <h1>Transform Your Business With Intelligent AI Agents</h1>
+                <p>24/7 automated customer service, lead generation, and appointment booking that scales with your business and never sleeps.</p>
                 <div class="hero-btns">
-                    <button class="btn btn-primary" onclick="showPage('services')">Our Services</button>
-                    <button class="btn btn-secondary" onclick="showPage('contact')">Get Free Demo</button>
+                    <a href="services.html" class="btn btn-primary">Explore Services</a>
+                    <a href="contact.html" class="btn btn-secondary">Get Free Demo</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Page -->
-    <section id="about" class="page">
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
             <div class="section-header">
-                <h2>About AI Growth Agents</h2>
-                <p>We are a team of AI specialists dedicated to helping businesses leverage automation for growth and efficiency.</p>
+                <h2>Why Choose AI Growth Agents?</h2>
+                <p>We deliver cutting-edge AI solutions that drive real business results</p>
             </div>
             
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>We Build The Future of Customer Service</h2>
-                    <p>Founded in 2023, AI Growth Agents has helped over 200 businesses implement AI solutions that save time, reduce costs, and improve customer satisfaction.</p>
-                    <p>Our team combines expertise in artificial intelligence, natural language processing, and business strategy to create solutions that deliver real results.</p>
-                    
-                    <div class="about-stats">
-                        <div class="stat-card">
-                            <div class="stat-number">200+</div>
-                            <div class="stat-label">Clients Served</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">97%</div>
-                            <div class="stat-label">Client Satisfaction</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">24/7</div>
-                            <div class="stat-label">Support</div>
-                        </div>
+            <div class="features-grid">
+                <div class="feature-card floating">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
+                    <h3>24/7 Availability</h3>
+                    <p>Your AI agent works around the clock, handling customer inquiries and capturing leads even when you're asleep.</p>
                 </div>
                 
-                <div class="about-image">
-                    AI Innovation Team
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Page -->
-    <section id="services" class="page">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our AI Services</h2>
-                <p>We offer a range of AI automation solutions tailored to your business needs and budget.</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
+                <div class="feature-card floating" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Basic AI Agent</h3>
-                    <p>Perfect for small businesses looking to automate customer inquiries and lead capture.</p>
-                    <div class="service-price">$97</div>
-                    <button class="btn btn-primary" onclick="showPage('contact')">Get Started</button>
+                    <h3>Lightning Fast</h3>
+                    <p>Instant responses to customer queries with AI-powered accuracy and human-like conversation.</p>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <h3>Appointment Setter</h3>
-                    <p>AI agent that handles scheduling, calendar management, and appointment reminders.</p>
-                    <div class="service-price">$197</div>
-                    <button class="btn btn-primary" onclick="showPage('contact')">Get Started</button>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="feature-card floating" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Business Assistant</h3>
-                    <p>Comprehensive AI solution with multi-channel support and advanced analytics.</p>
-                    <div class="service-price">$297</div>
-                    <button class="btn btn-primary" onclick="showPage('contact')">Get Started</button>
+                    <h3>Proven Results</h3>
+                    <p>Increase conversions by up to 300% and reduce response time from hours to seconds.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AI Agents Page -->
-    <section id="agents" class="page">
+    <!-- CTA Section -->
+    <section class="cta">
         <div class="container">
-            <div class="section-header">
-                <h2>Our AI Agents</h2>
-                <p>Choose from our specialized AI agents designed for different industries and use cases.</p>
-            </div>
-            
-            <div class="agents-container">
-                <div class="agent-card">
-                    <div class="agent-image">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="agent-content">
-                        <h3>Real Estate AI</h3>
-                        <p>Handles property inquiries, schedules viewings, and qualifies leads 24/7.</p>
-                        <ul class="agent-features">
-                            <li><i class="fas fa-check"></i> Property Q&A</li>
-                            <li><i class="fas fa-check"></i> Viewing Scheduling</li>
-                            <li><i class="fas fa-check"></i> Lead Qualification</li>
-                            <li><i class="fas fa-check"></i> CRM Integration</li>
-                        </ul>
-                        <button class="btn btn-primary" onclick="showPage('contact')">Get This Agent</button>
-                    </div>
-                </div>
-                
-                <div class="agent-card">
-                    <div class="agent-image">
-                        <i class="fas fa-stethoscope"></i>
-                    </div>
-                    <div class="agent-content">
-                        <h3>Healthcare AI</h3>
-                        <p>Manages appointment booking, answers common questions, and sends reminders.</p>
-                        <ul class="agent-features">
-                            <li><i class="fas fa-check"></i> Appointment Scheduling</li>
-                            <li><i class="fas fa-check"></i> FAQ Automation</li>
-                            <li><i class="fas fa-check"></i> Reminder System</li>
-                            <li><i class="fas fa-check"></i> HIPAA Compliant</li>
-                        </ul>
-                        <button class="btn btn-primary" onclick="showPage('contact')">Get This Agent</button>
-                    </div>
-                </div>
-                
-                <div class="agent-card">
-                    <div class="agent-image">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="agent-content">
-                        <h3>E-commerce AI</h3>
-                        <p>Provides product recommendations, order tracking, and customer support.</p>
-                        <ul class="agent-features">
-                            <li><i class="fas fa-check"></i> Product Recommendations</li>
-                            <li><i class="fas fa-check"></i> Order Tracking</li>
-                            <li><i class="fas fa-check"></i> Return Processing</li>
-                            <li><i class="fas fa-check"></i> Cart Recovery</li>
-                        </ul>
-                        <button class="btn btn-primary" onclick="showPage('contact')">Get This Agent</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Page -->
-    <section id="portfolio" class="page">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Portfolio</h2>
-                <p>See how we've helped businesses across different industries implement AI solutions.</p>
-            </div>
-            
-            <div class="portfolio-grid">
-                <div class="portfolio-item">Real Estate Company</div>
-                <div class="portfolio-item">Healthcare Clinic</div>
-                <div class="portfolio-item">E-commerce Store</div>
-                <div class="portfolio-item">Legal Practice</div>
-                <div class="portfolio-item">Restaurant Chain</div>
-                <div class="portfolio-item">Financial Services</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Page -->
-    <section id="pricing" class="page">
-        <div class="container">
-            <div class="section-header">
-                <h2>Simple, Transparent Pricing</h2>
-                <p>Choose the plan that works best for your business. All plans include setup and training.</p>
-            </div>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Starter</h3>
-                    <div class="pricing-price">$97</div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Basic AI Chatbot</li>
-                        <li><i class="fas fa-check"></i> 10 Q&A Trained</li>
-                        <li><i class="fas fa-check"></i> Lead Capture</li>
-                        <li><i class="fas fa-check"></i> 48hr Delivery</li>
-                        <li><i class="fas fa-check"></i> 1 Week Support</li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="showPage('contact')">Get Started</button>
-                </div>
-                
-                <div class="pricing-card popular">
-                    <div class="popular-badge">MOST POPULAR</div>
-                    <h3>Professional</h3>
-                    <div class="pricing-price">$197</div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Starter</li>
-                        <li><i class="fas fa-check"></i> Calendar Integration</li>
-                        <li><i class="fas fa-check"></i> 25 Q&A Trained</li>
-                        <li><i class="fas fa-check"></i> Booking System</li>
-                        <li><i class="fas fa-check"></i> 2 Weeks Support</li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="showPage('contact')">Get Started</button>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3>Enterprise</h3>
-                    <div class="pricing-price">$297</div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Professional</li>
-                        <li><i class="fas fa-check"></i> Multi-channel Setup</li>
-                        <li><i class="fas fa-check"></i> 50+ Q&A Trained</li>
-                        <li><i class="fas fa-check"></i> CRM Integration</li>
-                        <li><i class="fas fa-check"></i> 1 Month Support</li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="showPage('contact')">Get Started</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Page -->
-    <section id="blog" class="page">
-        <div class="container">
-            <div class="section-header">
-                <h2>AI Insights & Updates</h2>
-                <p>Stay updated with the latest trends in AI automation and business growth strategies.</p>
-            </div>
-            
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        AI Trends 2024
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> March 15, 2024</span>
-                            <span><i class="far fa-user"></i> John Smith</span>
-                        </div>
-                        <h3>Top 5 AI Trends That Will Transform Business in 2024</h3>
-                        <p>Discover the AI technologies that are set to revolutionize how businesses operate and engage with customers.</p>
-                        <button class="btn btn-secondary">Read More</button>
-                    </div>
-                </div>
-                
-                <div class="blog-card">
-                    <div class="blog-image">
-                        Case Study
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> February 28, 2024</span>
-                            <span><i class="far fa-user"></i> Sarah Johnson</span>
-                        </div>
-                        <h3>How We Increased Leads by 300% With AI Automation</h3>
-                        <p>Case study showing how a real estate company leveraged our AI agents to dramatically increase qualified leads.</p>
-                        <button class="btn btn-secondary">Read More</button>
-                    </div>
-                </div>
-                
-                <div class="blog-card">
-                    <div class="blog-image">
-                        AI Implementation
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> February 10, 2024</span>
-                            <span><i class="far fa-user"></i> Michael Chen</span>
-                        </div>
-                        <h3>A Step-by-Step Guide to Implementing AI in Your Business</h3>
-                        <p>Practical advice for business owners looking to integrate AI solutions without disrupting operations.</p>
-                        <button class="btn btn-secondary">Read More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Page -->
-    <section id="contact" class="page">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>Ready to transform your business with AI? Contact us for a free consultation and demo.</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3>Our Location</h3>
-                            <p>123 AI Street, Tech City, TC 10101</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h3>Phone Number</h3>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>Email Address</h3>
-                            <p>contact@aigrowthagents.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <h3>Working Hours</h3>
-                            <p>Monday - Friday: 9AM - 6PM</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="business">Business Name</label>
-                            <input type="text" id="business" class="form-control" placeholder="Your Business" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" class="form-control" required>
-                                <option value="">Select a Service</option>
-                                <option value="basic">Basic AI Agent - $97</option>
-                                <option value="appointment">Appointment Setter - $197</option>
-                                <option value="business">Business Assistant - $297</option>
-                                <option value="custom">Custom Solution</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" class="form-control" placeholder="Tell us about your business needs..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support Page -->
-    <section id="support" class="page">
-        <div class="container">
-            <div class="section-header">
-                <h2>Support Center</h2>
-                <p>Find answers to common questions and get help with your AI agent.</p>
-            </div>
-            
-            <div class="support-container">
-                <div class="faq-section">
-                    <h3>Frequently Asked Questions</h3>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            How long does it take to set up an AI agent?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            Most AI agents are set up within 2-5 business days, depending on the complexity of your requirements and the package you choose.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Can the AI agent integrate with my existing systems?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            Yes, our AI agents can integrate with popular CRM systems, calendar applications, and other business tools. We'll discuss your specific needs during the consultation.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            What kind of training is required for my team?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            We provide comprehensive training for your team to manage and update the AI agent. Most clients find the interface intuitive and require minimal training.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Do you offer ongoing support and maintenance?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            Yes, all our packages include a support period. We also offer monthly maintenance plans for ongoing updates and optimization.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            What happens if the AI doesn't understand a customer question?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            Our AI agents are designed to gracefully handle unfamiliar questions by either asking for clarification or escalating to a human agent, ensuring no customer query goes unanswered.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="support-resources">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <h3>Documentation</h3>
-                        <p>Comprehensive guides and tutorials for your AI agent.</p>
-                        <button class="btn btn-secondary">View Docs</button>
-                    </div>
-                    
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h3>Video Tutorials</h3>
-                        <p>Step-by-step video guides for setup and management.</p>
-                        <button class="btn btn-secondary">Watch Videos</button>
-                    </div>
-                    
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h3>Live Chat</h3>
-                        <p>Get instant help from our support team via live chat.</p>
-                        <button class="btn btn-secondary">Start Chat</button>
-                    </div>
-                    
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-ticket-alt"></i>
-                        </div>
-                        <h3>Submit Ticket</h3>
-                        <p>Create a support ticket for complex issues or requests.</p>
-                        <button class="btn btn-secondary">Submit Ticket</button>
-                    </div>
-                </div>
-            </div>
+            <h2>Ready to Automate Your Business?</h2>
+            <p>Join 200+ businesses that have transformed their customer service with our AI agents</p>
+            <a href="contact.html" class="btn btn-secondary">Start Your AI Journey Today</a>
         </div>
     </section>
 
@@ -1332,7 +521,7 @@
             <div class="footer-container">
                 <div class="footer-column">
                     <h3>AI Growth Agents</h3>
-                    <p>Transforming businesses with intelligent AI automation solutions for customer service, lead generation, and appointment booking.</p>
+                    <p>Transforming businesses with intelligent AI automation solutions for customer service and lead generation.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1344,22 +533,21 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="showPage('home')">Home</a></li>
-                        <li><a href="#" onclick="showPage('about')">About Us</a></li>
-                        <li><a href="#" onclick="showPage('services')">Services</a></li>
-                        <li><a href="#" onclick="showPage('pricing')">Pricing</a></li>
-                        <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="showPage('agents')">AI Agents</a></li>
-                        <li><a href="#" onclick="showPage('services')">Chatbot Development</a></li>
-                        <li><a href="#" onclick="showPage('services')">Automation Solutions</a></li>
-                        <li><a href="#" onclick="showPage('services')">Business Intelligence</a></li>
-                        <li><a href="#" onclick="showPage('support')">Support & Maintenance</a></li>
+                        <li><a href="ai-agents.html">AI Agents</a></li>
+                        <li><a href="services.html">Chatbot Development</a></li>
+                        <li><a href="services.html">Automation Solutions</a></li>
+                        <li><a href="support.html">Support & Maintenance</a></li>
                     </ul>
                 </div>
                 
@@ -1381,35 +569,6 @@
     </footer>
 
     <script>
-        // Page Navigation
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-
-        // Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will contact you within 24 hours.');
-            this.reset();
-        });
-
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
@@ -1426,6 +585,29 @@
                 nav.style.background = 'rgba(255, 255, 255, 0.95)';
                 nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards for animation
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
     </script>
 </body>
